@@ -3,6 +3,8 @@
 
   import Markdown from "../components/Markdown.svelte";
   import NotFound from "../components/NotFound.svelte";
+  import InfoIcon from "../components/icons/InfoIcon.svelte";
+  import ToolTip, { getHelpMessage } from "../components/ToolTip.svelte";
 
   export let params;
   let metricName = params.metric.replaceAll("-", ".");
@@ -75,7 +77,12 @@
   </p>
   <table class="metrics-table">
     <tr>
-      <td>Relevant Bugs</td>
+      <td>
+        Relevant Bugs
+        <ToolTip top={true} tip={getHelpMessage('bugs')}>
+          <InfoIcon />
+        </ToolTip>
+      </td>
       <td>
         {#each metric.bugs as bug}
           <a
@@ -88,7 +95,12 @@
       </td>
     </tr>
     <tr>
-      <td>Send In Pings</td>
+      <td>
+        Send In Pings
+        <ToolTip top={true} tip={getHelpMessage('send_in_pings')}>
+          <InfoIcon />
+        </ToolTip>
+      </td>
       <td>
         {#each metric.send_in_pings as mping}
           <a href={`/apps/${params.app}/pings/${mping}`}> {mping} </a>
@@ -103,6 +115,9 @@
             target="_blank">
             Lifetime
           </a>
+          <ToolTip top={true} tip={getHelpMessage('lifetime')}>
+            <InfoIcon />
+          </ToolTip>
         </td>
         <td>{metric.lifetime}</td>
       </tr>
