@@ -79,7 +79,7 @@
     <tr>
       <td>
         Relevant Bugs
-        <ToolTip top={true} tip={getHelpMessage('bugs')}>
+        <ToolTip props={{content:getHelpMessage('send_in_pings')}}>
           <InfoIcon />
         </ToolTip>
       </td>
@@ -97,7 +97,7 @@
     <tr>
       <td>
         Send In Pings
-        <ToolTip top={true} tip={getHelpMessage('send_in_pings')}>
+        <ToolTip props={{content:getHelpMessage('send_in_pings')}}>
           <InfoIcon />
         </ToolTip>
       </td>
